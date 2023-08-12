@@ -51,10 +51,10 @@ function playRound() {
 }
 
 function game() {
-for (let i = 1; i < 4; i++) {
+for (let i = 1; i <= 5; i++) {
     choice = prompt(`Choose Rock, Paper or Scissors:`)
     alert(`You: `+ choice[0].toUpperCase() + choice.substring(1) + `!\r` + playRound())
-    alert(`Game: ` + i + `/3\r` + `Score:\rYou: ` + w +`\rCPU: ` + l + `\rTies: ` + t)
+    alert(`Game: ` + i + `/5\r` + `Score:\rYou: ` + w +`\rCPU: ` + l + `\rTies: ` + t)
     if(invalid == 1) {
         i--
         invalid--
