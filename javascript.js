@@ -1,4 +1,4 @@
-let choice = 'paper';
+let choice;
 let t = 0
 let w = 0
 let l = 0
@@ -15,7 +15,8 @@ if(compChoice <= 33) {
 }
 }
 
-function playRound(choice, computerSelection) {
+function playRound() {
+    let computerSelection = getComputerChoice()
     if(choice.toLowerCase() == 'rock' && computerSelection == 'rock') {
         t++
         return 'Computer: rock! It\'s a tie!'
@@ -48,5 +49,16 @@ function playRound(choice, computerSelection) {
         return 'Please choose rock paper or scissors!'
     }
 }
-const computerSelection = getComputerChoice()
-console.log(playRound(choice, computerSelection))
+
+function game() {
+for (let i = 1; i < 4; i++) {
+    choice = prompt(`Choose Rock, Paper or Scissors:`)
+    alert(`You: `+ choice[0].toUpperCase() + choice.substring(1) + `!\r` + playRound())
+    alert(`Game: ` + i + `/3\r` + `Score:\rYou: ` + w +`\rCPU: ` + l + `\rTies: ` + t)
+    if(invalid == 1) {
+        i--
+        invalid--
+    }
+}
+}
+game()
