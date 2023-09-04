@@ -49,16 +49,13 @@ function playRound() {
         return 'Please choose rock paper or scissors!'
     }
 }
+//dom ui
+const rockbtn = document.querySelector('#rock')
+rockbtn.addEventListener('click', playRound)
+const paperbtn = document.querySelector('#paper')
+paperbtn.addEventListener('click', playRound)
+const scissorbtn = document.querySelector('#scissors')
+scissorbtn.addEventListener('click', playRound)
 
-function game() {
-for (let i = 1; i <= 5; i++) {
-    choice = prompt(`Choose Rock, Paper or Scissors:`)
-    alert(`You: `+ choice[0].toUpperCase() + choice.substring(1) + `!\r` + playRound())
-    alert(`Game: ` + i + `/5\r` + `Score:\rYou: ` + w +`\rCPU: ` + l + `\rTies: ` + t)
-    if(invalid == 1) {
-        i--
-        invalid--
-    }
-}
-}
-game()
+/*Link buttons to event listeners. Refactor playround to accept button input
+instead of 'choice'.
