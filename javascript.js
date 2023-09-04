@@ -14,48 +14,57 @@ if(compChoice <= 33) {
     return 'scissors'
 }
 }
-
-function playRound() {
-    let computerSelection = getComputerChoice()
-    if(choice.toLowerCase() == 'rock' && computerSelection == 'rock') {
+let computerSelection = getComputerChoice()
+function playRoundRock(computerSelection) {
+    if(computerSelection === 'rock') {
         t++
         return 'Computer: rock! It\'s a tie!'
-    } else if(choice.toLowerCase() == 'paper' && computerSelection == 'paper') {
-        t++
-        return 'Computer: paper! It\'s a tie!'
-    } else if(choice.toLowerCase() == 'scissors' && computerSelection == 'scissors') {
-        t++
-        return 'Computer: scissors! It\'s a tie!'
-    } else if(choice.toLowerCase() == 'rock' && computerSelection == 'paper') {
+    } else if(computerSelection == 'paper') {
         l++
         return 'Computer: paper! You lose!'
-    } else if(choice.toLowerCase() == 'paper' && computerSelection == 'scissors') {
-        l++
-        return 'Computer: scissors! You lose!'
-    } else if(choice.toLowerCase() == 'scissors' && computerSelection == 'rock') {
-        l++
-        return 'Computer: rock! You lose!'
-    } else if(choice.toLowerCase() == 'rock' && computerSelection == 'scissors') {
+    } else if(computerSelection == 'scissors') {
         w++
         return 'Computer: scissors! You win!'
-    } else if(choice.toLowerCase() == 'paper' && computerSelection == 'rock') {
-        w++
-        return 'Computer: rock! You win!'
-    } else if(choice.toLowerCase() == 'scissors' && computerSelection == 'paper') {
-        w++
-        return 'Computer: paper! You win!'
-    } else {
-        invalid++
-        return 'Please choose rock paper or scissors!'
     }
 }
+
+function playRoundScissors(computerSelection) {
+    if(computerSelection === 'scissors') {
+    t++
+    return 'Computer: scissors! It\'s a tie!'
+    } else if(computerSelection == 'rock') {
+    l++
+    return 'Computer: rock! You lose!'
+    } else if(computerSelection == 'paper') {
+    w++
+    return 'Computer: paper! You win!'
+    }
+}
+
+function playRoundPaper(computerSelection) {
+    if(computerSelection === 'paper') {
+        t++
+        return 'Computer: paper! It\'s a tie!'
+    } else if(computerSelection == 'scissors') {
+        l++
+        return 'Computer: scissors! You lose!'
+    } else if(computerSelection == 'rock') {
+        w++
+        return 'Computer: rock! You win!'
+    }
+}
+
+
+
+
 //dom ui
 const rockbtn = document.querySelector('#rock')
-rockbtn.addEventListener('click', playRound)
+rockbtn.addEventListener('click', playRoundRock)
 const paperbtn = document.querySelector('#paper')
-paperbtn.addEventListener('click', playRound)
+paperbtn.addEventListener('click', playRoundPaper)
 const scissorbtn = document.querySelector('#scissors')
-scissorbtn.addEventListener('click', playRound)
+scissorbtn.addEventListener('click', playRoundScissors)
 
-/*Link buttons to event listeners. Refactor playround to accept button input
-instead of 'choice'.
+/*Create html divs that hold scoreboard UI. Link playround to UI scoreboard to
+display results. Once score reaches 5, announce winner and reset score. Might have
+to create html ui in JS and append to DOM */
