@@ -61,14 +61,3 @@ buttons.forEach(button => {
         playRound(button.value)
     })
 })
-
-/*const rockbtn = document.querySelector('#rock')
-rockbtn.addEventListener('click', playRoundRock)
-const paperbtn = document.querySelector('#paper')
-paperbtn.addEventListener('click', playRoundPaper)
-const scissorbtn = document.querySelector('#scissors')
-scissorbtn.addEventListener('click', playRoundScissors)
-
-/*Create html divs that hold scoreboard UI. Link playround to UI scoreboard to
-display results. Once score reaches 5, announce winner and reset score. Might have
-to create html ui in JS and append to DOM */
